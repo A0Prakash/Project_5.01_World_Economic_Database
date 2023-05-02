@@ -207,7 +207,6 @@ public class EconomicDatabase {
      * Resources used to write sort: https://www.programiz.com/java-programming/examples/merge-sort
      */
     public void sortDB()    {
-        printDatabase();
         CountryComparator comp = new CountryComparator(asc, primarySort, secondarySort);
         mergeSort(database, 0, database.size()-1, comp);
     }

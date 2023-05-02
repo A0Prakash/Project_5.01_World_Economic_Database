@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="305fbd92-d8de-413d-9d26-e00081c90402" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CountryComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CountryComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataParser.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EconomicDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EconomicDatabase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +68,7 @@
       <workItem from="1682341445257" duration="1489000" />
       <workItem from="1682519705399" duration="3074000" />
       <workItem from="1682684144122" duration="4197000" />
-      <workItem from="1682984610221" duration="6440000" />
+      <workItem from="1682984610221" duration="8891000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1682988826861</created>
@@ -80,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682988826861</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit">
+      <created>1682991084848</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682991084848</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,7 +92,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
