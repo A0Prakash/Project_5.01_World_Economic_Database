@@ -1,4 +1,5 @@
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -59,6 +60,7 @@ public class EconomicDatabase {
                     indices[11] = Double.parseDouble(line[15]);
                     database.get(database.size()-1).populateIndices(indices);
                 }
+                //System.out.println(database.size());
             }
             in.close();
         }
@@ -123,13 +125,87 @@ public class EconomicDatabase {
         }
     }
 
+
+    void merge(ArrayList<Country> database, int p, int q, int r, CountryComparator comp) {
+
+        System.out.println("merge");
+        int n1 = q - p + 1;
+        int n2 = r - q;
+
+        ArrayList<Country> L = new ArrayList<>(n1);
+        ArrayList<Country> M = new ArrayList<>(n2);
+
+        // fill the left and right array
+        for (int i = 0; i < n1; i++) {
+            L.add(i, database.get(p + i));
+        }
+        for (int j = 0; j < n2; j++) {
+            M.add(j, database.get(q + 1 + j));
+        }
+
+
+
+        // Maintain current index of sub-arrays and main array
+        int i, j, k;
+        i = 0;
+        j = 0;
+        k = p;
+
+        // Until we reach either end of either L or M, pick larger among
+        // elements L and M and place them in the correct position at A[p..r]
+        // for sorting in descending
+        // use if(L[i] >= <[j])
+        while (i < n1 && j < n2) {
+            if (comp.compare(L.get(i), M.get(j)) < 0) {
+                database.set(k, L.get(i));
+                i++;
+            } else {
+                database.set(k, M.get(j));
+                j++;
+            }
+            k++;
+        }
+
+        // When we run out of elements in either L or M,
+        // pick up the remaining elements and put in A[p..r]
+        while (i < n1) {
+            database.set(k, L.get(i));
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            database.set(k, M.get(j));
+            j++;
+            k++;
+        }
+    }
+
+    void mergeSort(ArrayList<Country> database, int left, int right, CountryComparator comp) {
+        if (left < right) {
+
+            // m is the point where the array is divided into two sub arrays
+            int mid = (left + right) / 2;
+
+            // recursive call to each sub arrays
+            mergeSort(database, left, mid, comp);
+            mergeSort(database, mid + 1, right, comp);
+
+            // Merge the sorted sub arrays
+            merge(database, left, mid, right, comp);
+
+        }
+    }
     /**
      * TODO: Overwrite this call to Collections.sort with a user-defined sort
      * TODO: Selection, Insertion, or Mergesort
      */
     public void sortDB()    {
+        printDatabase();
+        System.out.println("");
         CountryComparator comp = new CountryComparator(asc, primarySort, secondarySort);
-        Collections.sort(database, comp);
+        System.out.println(database.size()-1);
+        mergeSort(database, 0, database.size()-1, comp);
     }
 
     /**
