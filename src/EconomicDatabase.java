@@ -5,8 +5,11 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
- * TODO: Class header comment
+ * @version 05.01.2023
+ * @author 26prakash
+ * @author jcochran
  */
+
 public class EconomicDatabase {
     private ArrayList<Country> database;
     private String[] categories;
@@ -19,7 +22,7 @@ public class EconomicDatabase {
     "FH: Fiscal Health","BF: Business Freedom","LF: Labor Freedom","MF: Monetary Freedom","TF: Trade Freedom","IF: Investment Freedom","FF: Financial Freedom"};
 
     /**
-     * TODO: Constructor comment
+     * Simple Constructor for Economic Database class.
      */
     public EconomicDatabase()   {
         database = new ArrayList<>();
@@ -30,7 +33,8 @@ public class EconomicDatabase {
     }
 
     /**
-     * TODO: Method comment
+     * populateDatabase method of the EconomicDatabase class
+     * Adds all of the Countries to the database arraylist
      */
     public void populateDatabase() {
         String filename = "IEF_2023_data.txt";
@@ -70,8 +74,8 @@ public class EconomicDatabase {
     }
 
     /**
-     * TODO: Method comment
-     * @return
+     * getSearchCriteria method of the EconomicDatabase class
+     * @return true or false, depending on whether the program should be quit or not.
      */
     public boolean getSearchCriteria()  {
         String userIn;
@@ -126,14 +130,12 @@ public class EconomicDatabase {
     }
 
 
-    void merge(ArrayList<Country> database, int p, int q, int r, CountryComparator comp) {
-
-        System.out.println("merge");
+    private void merge(ArrayList<Country> database, int p, int q, int r, CountryComparator comp) {
         int n1 = q - p + 1;
         int n2 = r - q;
 
-        ArrayList<Country> L = new ArrayList<>(n1);
-        ArrayList<Country> M = new ArrayList<>(n2);
+        ArrayList<Country> L = new ArrayList<>();
+        ArrayList<Country> M = new ArrayList<>();
 
         // fill the left and right array
         for (int i = 0; i < n1; i++) {
@@ -181,7 +183,7 @@ public class EconomicDatabase {
         }
     }
 
-    void mergeSort(ArrayList<Country> database, int left, int right, CountryComparator comp) {
+    private void mergeSort(ArrayList<Country> database, int left, int right, CountryComparator comp) {
         if (left < right) {
 
             // m is the point where the array is divided into two sub arrays
@@ -197,19 +199,22 @@ public class EconomicDatabase {
         }
     }
     /**
-     * TODO: Overwrite this call to Collections.sort with a user-defined sort
-     * TODO: Selection, Insertion, or Mergesort
+     * sortDB method of the EconomicDatabase class
+     * Sorts the database arraylist
+     * SORT: UTILIZES MERGESORT IN THE mergeSort AND merge private methods
+     * The mergesort is recursive.
+     * Lines 131-198
+     * Resources used to write sort: https://www.programiz.com/java-programming/examples/merge-sort
      */
     public void sortDB()    {
         printDatabase();
-        System.out.println("");
         CountryComparator comp = new CountryComparator(asc, primarySort, secondarySort);
-        System.out.println(database.size()-1);
         mergeSort(database, 0, database.size()-1, comp);
     }
 
     /**
-     * TODO: Method comment
+     * printDatabase method of the EconomicDatabase class
+     * prints out the database arraylist
      */
     public void printDatabase() {
         for(int i = 0; i < database.size(); i++) {
@@ -219,8 +224,8 @@ public class EconomicDatabase {
     }
 
     /**
-     * TODO: Method comment
-     * @param args
+     * main method of the EconomicDatabase class
+     * @param args command line arguments, if needed
      */
     public static void main(String[] args) {
         EconomicDatabase database = new EconomicDatabase();

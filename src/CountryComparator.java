@@ -1,15 +1,33 @@
 import java.util.Comparator;
 
+/**
+ * CountryComparator class
+ * @version 05.01.2023
+ * @author 26prakash
+ * @author jcochran
+ */
 public class CountryComparator implements Comparator<Country> {
     private boolean asc;
     private String primarySort, secondarySort;
 
+    /**
+     * Simple constructor for CountryComparator
+     * @param a asc or desc value
+     * @param p primary sort
+     * @param s secondary sort
+     */
     public CountryComparator(boolean a, String p, String s) {
         asc = a;
         primarySort = p;
         secondarySort = s;
     }
 
+    /**
+     * compare method of teh CountryComparator class
+     * @param one the first Country to be compared.
+     * @param two the second Country to be compared.
+     * @return and integer with the comparison between the two countries
+     */
     public int compare(Country one, Country two) {
         int diff = 0;
         if(primarySort.equals("Country ID"))

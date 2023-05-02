@@ -2,7 +2,9 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 
 /**
- * @TODO complete this header comment
+ * @version 05.01.23
+ * @author jcochran
+ * @author 26prakash
  */
 public class Country implements Comparable<Country> {
     private int ID;
@@ -13,7 +15,9 @@ public class Country implements Comparable<Country> {
     private String secondaryCategory;
 
     /**
-     * TODO complete this constructor comment
+     * Constructor for the Country object
+     * Takes name, webName, and region in local variables
+     * Creates a hashmap with all double values
      * @param id
      * @param name
      * @param wName
@@ -41,7 +45,8 @@ public class Country implements Comparable<Country> {
     }
 
     /**
-     * TODO: method comment
+     * populateIndices method of the Country class.
+     * populates the hashmap with the actual values.
      * @param values
      */
     public void populateIndices(double[] values)    {
@@ -57,7 +62,8 @@ public class Country implements Comparable<Country> {
     }
 
     /**
-     * TODO: method comment
+     * setSecondaryCategory method of the Country class
+     * sets the secondary category.
      * @param sTerm
      */
     public void setSecondaryCategory(String sTerm)  {
@@ -65,8 +71,9 @@ public class Country implements Comparable<Country> {
     }
 
     /**
-     * TODO: method comment
-     * @return
+     * toString method of the Country class
+     * Makes a country object a string
+     * @return The string in a readable format
      */
     public String toString()    {
         DecimalFormat df = new DecimalFormat("0.00");
@@ -78,9 +85,9 @@ public class Country implements Comparable<Country> {
     }
 
     /**
-     * TODO: method comment
+     * compareTo method of the Country class
      * @param other the object to be compared.
-     * @return
+     * @return the comparison made by the two countries
      */
     public int compareTo(Country other) {
         Double myEFI = economicFreedomIndex;
@@ -89,41 +96,41 @@ public class Country implements Comparable<Country> {
     }
 
     /**
-     * TODO: method comment
-     * @return
+     * getEconomicFreedomIndex method of the Country class
+     * @return the economicFreedomIndex
      */
     public double getEconomicFreedomIndex() {
         return economicFreedomIndex;
     }
 
     /**
-     * TODO: method comment
-     * @param indexName
-     * @return
+     * getIndexValue method of the Country class
+     * @param indexName the name of the variable that needs to be retrieved(the key)
+     * @return the value set with that indice
      */
     public double getIndexValue(String indexName)   {
         return categoryIndices.get(indexName);
     }
 
     /**
-     * TODO: method comment
-     * @return
+     * getID method of the Country class
+     * @return the ID of the Country
      */
     public int getID() {
         return ID;
     }
 
     /**
-     * TODO: method comment
-     * @return
+     * getCountryName method of the Country class
+     * @return the name of the country
      */
     public String getCountryName() {
         return countryName;
     }
 
     /**
-     * TODO: method comment
-     * @return
+     * getRegion method of the Country class
+     * @return the region that the country is in
      */
     public String getRegion() {
         return region;
